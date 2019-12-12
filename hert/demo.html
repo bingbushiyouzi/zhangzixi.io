@@ -19,10 +19,10 @@ body {
 
 .container {
   position: relative;
-  margin: auto;
+  margin: 0% auto;
   overflow: hidden;
   width: 650px;
-  height: 450px;
+  height: 510px;
 }
 
 h1 {
@@ -99,7 +99,7 @@ footer a:hover {
 	height:100px;
 }
 #but{
-	display:none;
+	
 	text-align: center;
   	-webkit-align-self: center;
       -ms-flex-item-align: center;
@@ -126,16 +126,19 @@ footer a:hover {
 <body>
 
 <div class="container">
-
 	<h1>
-		从认识你到现在,From 维C to much water fish,从我们开始的第十九句话开始就是关于他,直到现在,或许以后,
+		认识那天  </h1>
+	<h1>
+		Me :来了 老弟  You :来了</h1>
+	<h1>	Me:天天看到你连个号都不敢要  </h1>
+	<h1>	You: 原来的都不是我哈哈啊哈
 		
 		
 	</h1>
 	<h1>故事大发展有很多意外，有你在的结局总不太坏</h1>
   <div id="timer"></div>
-  <h1>Do you remember the day we met</h1>
-  <h1>Maybe something strange will happen between 14 and 31</h1>
+  <h1>认识你的时候是平常的一天</h1>
+  <h1>但不知道为什么那天的聊天我却久久没忘，越来越清晰</h1>
 </div>
   <div id="butdiv">
   <button id='but' onclick="javascrtpt:window.location.href='./heart.html'">Lined Thick</button>
@@ -144,7 +147,7 @@ footer a:hover {
 
 <script>
 const fourthOfJuly = new Date("July 4, 2028 12:00:00").getTime();
-var before = new Date("2019-01-03").getTime();
+var before = new Date("2019-05-27").getTime();
 
 
 // countdown
@@ -173,9 +176,7 @@ let timer = setInterval(function() {
 <div class=\"seconds\"> \
   <div class=\"numbers\">" + seconds + "</div>seconds</div> \
 </div>";
-	if(seconds>14 && seconds<31){
-		$("#but").attr("style","display:block;");
-	}
+
 }, 1000);
 	
 </script>
