@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>维C</title>
+<embed src="qingtian.mp3" hidden="true" autostart="true"/>
+
+
+<script type="text/javascript">
+	var element = [[100,0,1],[200,0,2],[400,0,3],[500,0,4],
+	           [0,100,5],[100,100,6],[500,100,7],[600,100,8],
+	           [0,200,9],[100,200,10],[500,200,11],[600,200,12],
+	           [100,300,13],[500,300,14],
+	           [200,400,15],[300,400,16],[400,400,17],
+	           [300,500,18]];
+	var center = [[200,100,19],[300,100,20],[400,100,21],[200,200,22],[300,200,23],[400,200,24],[200,300,25],[300,300,26],[400,300,27]]
+	var message = [["6月7日</br>我在回家的火车上打盹,第一次发还撤回了可真是个弟弟"],
+	               ["5月18日</br> 没话找话，孤我系列，给人家发，人家都不理你"],
+	               ["2月6日</br> 新年的前一天晚上，我想这张你应该记得吧哈哈哈，那晚发现了一些有趣的东西，某人主动发的，也是第一次知道你的样子，之后的第二天除夕夜，某人就拉着我。。。(此处省略500字)"],
+	               ["2月6日</br> 大年初二，那几天应该是最好的几天了吧，你突然写的这个，我不知道你当时是什么心里，可能随手一写，不过我也没有放在心上，因为你的言语全是他，我也根本没想 "],
+	               ["......</br> 加你为好友后，看到的第一张照片，当时的感觉：应该不丑吧"],
+	               ["......</br> 我现在看总感觉不咋像，不过眼影挺好看的"],
+	               ["5月24日</br> 第二天朋友圈要发的 配图，先让我瞅了一眼，真正给谁看的心里有数"],
+	               ["6月7日</br>同第一张一同发的，不过挡着脸确实还是有点样子的吗~"],
+	               ["5月18日</br> 没话找话，孤我系列"],
+	               [".....</br> 记不得是那天了，朋友圈偷的，为数不多的几张有脸照之一，那一阵的你频繁的发照片，应该是为了引起注意吧。"],
+	               ["6月7日</br>最爱之一 ，停   别想太多，主要是衣服，黑色的 uniform 这谁抗的住啊！"],
+	               ["2月14日</br> 你到武汉的第一天，下小雪了，记得上一次北京下雪你写了我的名字，你离开那天，我说这一走就离我一千多公里了，我有点不想，你说好无聊啊。我只是什么都不说，而你什么都不懂"],
+	               ["5月24日</br>完全是秀衣服，衣服好评，你差评"],
+	               ["6月7日</br> 黑色制服下半身，怎么感觉腿有点粗，是我眼花了么，我再看看"],
+	               ["2月13日</br> 晚上发的，至于干嘛了我就不说了 ，自己想去，又不想穿这个，不想穿那个的，啊哈哈哈好好不说了不说了"],
+	               ["2月13日</br> 说了半天才给你，说丑不想发，看看你那时候，现在怎么就这么膨胀了？？？天天说自己漂亮？"],
+	               ["5月24日</br> 相比其他的衣服偏御，不过这个颜色总让我想起某天深夜聊起的某样东西来，好像颜色差不多 嗯"],
+	               ["5月24日</br>动作不错 emmm 把头去掉给个8分吧"],
+	               ["6月6日</br> 小啾啾 左边的！"],
+	               ["6月6日</br> 中分？卖保险？ 大脑门？一根筋？"],
+	               ["6月6日</br> 小啾啾 右边的！"],
+	               ["6月6日</br> 左脸，对不起我错了，我忘了没脸某人是没脸的...."],
+	               ["6月6日</br> 这是我媳妇，别看了</br>那天周五，但是我却并没有什么高兴，那天他终于理你了，因为你给他买了一件衣服，你很开心，连跟我说话都带着粉色的气泡，虽然我并不是很想理你，但是身体却很诚实，那天晚上你给我看了跟赵彪说的截图，可能因为那个我又信了，我多么希望我当时没有信，一笑就过去了。你看过权游么，耶哥对雪诺说的：你什么都不懂"],
+	               ["6月6日</br> 右脸，希望你留住它"],
+	               ["6月6日</br> 如果你不是笨蛋，怎么会早没有察觉"],
+	               ["6月6日</br> 下巴还挺原，不过我喜欢啊哈哈哈"],
+	               ["6月6日</br> 记得有一天我问你知不知道我有一条朋友圈是仅你可见的，一天就删了，你却说起了别的，可能根本不在意吧"],
+	              
+	               ]
+	 var num = 0;
+	var sw;
+	
+	function  xin(){
+		var stopbig = setInterval(function (){
+			var index = Math.floor(Math.random()*element.length);
+			//当第一数组长度为零
+			if(element.length == 0 ){
+				var rew = Math.floor(Math.random()*center.length);
+				sw = center.splice(rew,1);
+				
+			}else{
+				sw = element.splice(index,1);
+				
+			}
+			var img = document.createElement("img");
+			num++;
+			img.style.position="absolute";
+			img.style.left=sw[0][0]+"px";
+			img.style.top=sw[0][1]+"px";
+			img.style.width="95px";
+			img.style.height="95px";
+			img.style.zIndex ="8"; 
+			img.setAttribute('id',sw[0][2]);
+			img.setAttribute('class',"zhizhang");
+			img.src = "wei"+sw[0][2]+".jpg";
+			img.onmouseover = function showmsg(){
+				img.style.webkitTransform="scale(1.05)";
+				img.style.transform="scale(2.05)";
+				img.style.boxShadow="0px 0px 10px rgba(0,0,0,0.1)";
+				img.style.borderRadius="50%";
+				img.style.zIndex ="999";
+				record.style.display="block";
+				var hn = img.getAttribute('id')-1;
+				record.innerHTML=message[hn];
+				/* img.style.width="200px";
+				img.style.height="200px";
+				img.style.top = parseInt(img.style.top)-35+"px";
+				img.style.left= parseInt(img.style.left)-35+"px";
+				img.style.zIndex ="999"; */
+				
+			}
+			img.onmouseout = function showms(){
+				img.style.webkitTransform="scale(1)";
+				img.style.transform="scale(1)";
+				img.style.boxShadow="0px 0px 10px rgba(0,0,0,0.1)";
+				img.style.borderRadius="0";
+				img.style.zIndex ="8"; 
+				record.style.display="none";
+				/* img.style.width="95px";
+				img.style.height="95px";
+				img.style.top = parseInt(img.style.top)+35+"px";
+				img.style.left= parseInt(img.style.left)+35+"px";
+				img.style.zIndex ="2"; */
+			}
+			var alpha = 0; //透明度值变量
+			var stop = setInterval(function (){
+				img.style.filter = 'alpha(opacity:'+alpha+')'; //设置IE的透明度
+				img.style.opacity = alpha / 100; //设置fierfox等透明度，注意透明度值是小数
+				d1.appendChild(img);
+				alpha += 1;
+				if(alpha==100){
+					clearInterval(stop);
+				}
+			},80);
+			var a = 0;
+			 if(num==27){
+				 var um = 0;
+				 var time = setInterval(function (){
+					if(um==4){
+						setInterval(function (){
+							main2.style.filter = 'alpha(opacity:'+a+')'; //设置IE的透明度
+							main2.style.opacity = a / 100; //设置fierfox等透明度，注意透明度值是小数
+							main2.style.zIndex ="5";
+							main2.style.display ="block";
+							a += 1;
+						},100);
+					}
+					um++;
+				},1000);
+		 	} 
+			if(num==27){
+			clearInterval(stopbig);
+			}
+		},1500);
+	} 
+	   
+	var h = 0;
+	var m = 0;
+	var s = 0;
+	var inh1 = 100;
+	function write(){
+		var time = setInterval(function(){
+			main.style.filter = 'alpha(opacity:'+inh1+')'; //设置IE的透明度
+			main.style.opacity = inh1 / 100; //设置fierfox等透明度，注意透明度值是小数
+			main.style.zIndex ="5";
+			/* main.style.display ="block"; */
+			inh1 -= 1;
+			if(inh1 == 20){
+				xin();
+			}
+		},50)
+	}
+	
+	//页面加载完
+	var timer = 0;
+ 
+	window.onload = function(){
+	    timer = setInterval(function (){
+	    	timer++;
+	    	if(timer == 5){
+	    		write();
+	    	}
+	    },1000);
+	};
+ 
+	function destroy(){
+	    if(!!timer) {
+	      clearInterval(timer);
+	      timer = null;
+	    }
+	}
+	/* function myfn(){
+		if(i1.value == ""){
+			h = 0;
+		}else{
+			h = parseInt(i1.value);
+		}
+		if(i2.value == ""){
+			m = 0;
+		}else{
+			m = parseInt(i2.value)+h*60;
+		}
+		if(i3.value == ""){
+			s = m*60;
+		}else{
+			s = parseInt(i3.value)+m*60;
+		}
+		var time = setInterval(function(){
+			s--;
+			var hours = parseInt(s/3600);
+			var minutes = parseInt(s%3600/60);
+			var sm = parseInt(s%3600%60);
+			h1.innerText= hours + ":"+ minutes + ":" + sm;
+			if(s==0){
+				h1.innerText= "时间到";
+			}
+			if(s==-1){
+				clearInterval(time);
+				d2.style.display ="none";
+				xin();
+			}
+		},1000);
+	} */
+	
+</script>
+<style type="text/css">
+
+#main{
+	position: absolute;
+	top: 200px;
+	left: 35%;
+	cursor: pointer;
+	z-index: 4;
+}
+#main2{
+	position: absolute;
+	top: 400px;
+	left: 70%;
+	cursor: pointer;
+	z-index: 4;
+}
+#main:hover{
+	
+}
+	
+	#record{
+		width:200px;
+		height:300px;
+		background-color: rgba(255,255,255,0.5);
+		font-family:'wei';
+		border-radius:20px;
+		color:rgba(81,81,71,0.8);
+		text-align:center;
+		font-size:20px;
+		display:none;
+		float:right;
+		margin-top:5%;
+		margin-right:15%;
+	}
+	@font-face {
+	    font-family: 'wei';
+	    src: url('https://qdcu01.baidupcs.com/file/e9f5a87a7912b7785810767207c5ba10?bkt=en-2a4ba40c42c88fab3c37d30db21aee7f60eb9e63adf924cf0c5aad4ee4831fc32b97bbe4f0bbafb1335de34f5e6328a778f5223e8a07dc006e82873573f84cd3&fid=1214427916-250528-176316050084516&time=1561616075&sign=FDTAXGERLQBHSKfW-DCb740ccc5511e5e8fedcff06b081203-J0tJREr%2FbZQGItFxfy8DzgT1tdU%3D&to=65&size=2250246&sta_dx=2250246&sta_cs=1&sta_ft=eot&sta_ct=2&sta_mt=2&fm2=MH%2CQingdao%2CAnywhere%2C%2Ctianjin%2Ccnc&ctime=1561128258&mtime=1561128258&resv0=cdnback&resv1=0&vuk=1214427916&iv=0&htype=&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=en-8d4f1ea2ba5255da2c848589881474ecbb6269b5d84fedd9348a66ff4afd7a23f104bf1fb2fc586631df90b440aed8ca92ea92e69b342b0d305a5e1275657320&sl=76480590&expires=8h&rt=pr&r=552704155&vbdid=14227991&fin=HYZhuZiMuTouRenW.eot&fn=HYZhuZiMuTouRenW.eot&rtype=1&dp-logid=4118893841285550556&dp-callid=0.1&hps=1&tsl=80&csl=80&csign=hrVAtgciSbxdHcj4s42RKpnuVDI%3D&so=0&ut=6&uter=4&serv=0&uc=738096701&ti=c77a2290e27174be413c8369e32933df282e43f307a093bb305a5e1275657320&by=themis');
+	    src: url('https://qdcu01.baidupcs.com/file/e9f5a87a7912b7785810767207c5ba10?bkt=en-2a4ba40c42c88fab3c37d30db21aee7f60eb9e63adf924cf0c5aad4ee4831fc32b97bbe4f0bbafb1335de34f5e6328a778f5223e8a07dc006e82873573f84cd3&fid=1214427916-250528-176316050084516&time=1561616075&sign=FDTAXGERLQBHSKfW-DCb740ccc5511e5e8fedcff06b081203-J0tJREr%2FbZQGItFxfy8DzgT1tdU%3D&to=65&size=2250246&sta_dx=2250246&sta_cs=1&sta_ft=eot&sta_ct=2&sta_mt=2&fm2=MH%2CQingdao%2CAnywhere%2C%2Ctianjin%2Ccnc&ctime=1561128258&mtime=1561128258&resv0=cdnback&resv1=0&vuk=1214427916&iv=0&htype=&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=en-8d4f1ea2ba5255da2c848589881474ecbb6269b5d84fedd9348a66ff4afd7a23f104bf1fb2fc586631df90b440aed8ca92ea92e69b342b0d305a5e1275657320&sl=76480590&expires=8h&rt=pr&r=552704155&vbdid=14227991&fin=HYZhuZiMuTouRenW.eot&fn=HYZhuZiMuTouRenW.eot&rtype=1&dp-logid=4118893841285550556&dp-callid=0.1&hps=1&tsl=80&csl=80&csign=hrVAtgciSbxdHcj4s42RKpnuVDI%3D&so=0&ut=6&uter=4&serv=0&uc=738096701&ti=c77a2290e27174be413c8369e32933df282e43f307a093bb305a5e1275657320&by=themis?#iefix') format('embedded-opentype'),
+	         url('https://qdcu01.baidupcs.com/file/47a721a2306711d97e119dc15edefa07?bkt=en-0f64e6ca9b24f0bccac295bd7c0b8d3b09ad4850d5b0b902b65101fbca1e7a1d0215f82244334c2d4a20a2e7181a1b4cdd2645e650195f965c7023d31f158000&fid=1214427916-250528-638931288111398&time=1561615004&sign=FDTAXGERLQBHSKfW-DCb740ccc5511e5e8fedcff06b081203-LeqrJLhck3zLaCF1ZWyRrtcFD8Q%3D&to=65&size=1434704&sta_dx=1434704&sta_cs=1&sta_ft=woff&sta_ct=2&sta_mt=2&fm2=MH%2CQingdao%2CAnywhere%2C%2Ctianjin%2Ccnc&ctime=1561128257&mtime=1561128257&resv0=cdnback&resv1=0&vuk=1214427916&iv=0&htype=&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=en-1d00a11697a09cc1a9ea215998664a791012642f1bd3fb7244145cca6d7fa8466cc1ff4bda2f93e9f67669655aa8f787d9bb3301d51364ee305a5e1275657320&sl=68616270&expires=8h&rt=pr&r=701983439&vbdid=14227991&fin=HYZhuZiMuTouRenW.woff&fn=HYZhuZiMuTouRenW.woff&rtype=1&dp-logid=4118606191159004748&dp-callid=0.1&hps=1&tsl=200&csl=200&csign=GbKitsuIrMICobuNySsnEGp48Bc%3D&so=0&ut=6&uter=4&serv=0&uc=738096701&ti=16c8192e22ea32f58978fc8d157b44a50b0080f739f48cb8&by=themis') format('woff'),
+	         url('https://d11.baidupcs.com/file/91dae5aa89a3c35ac76e86d02d32a3e9?bkt=en-07c9b0a504a37060edf97514e4ce85e8251aa34a07f7252ff8239927c310f8bb1065b7a890d26b1a&xcode=ddd435a5c80a3f3dea05f4854f0d6e166de8b15f56850763dc4e85240528fb841e5f23d42d768af4d57ac657f755d461316128a2cdfcce4d&fid=1214427916-250528-564216771608629&time=1561615026&sign=FDTAXGERLQBHSKf-DCb740ccc5511e5e8fedcff06b081203-Q2qC%2FXxGdhPQSnXss22A59pgTAw%3D&to=d11&size=2484256&sta_dx=2484256&sta_cs=26290&sta_ft=ttf&sta_ct=2&sta_mt=2&fm2=MH%2CQingdao%2CAnywhere%2C%2Ctianjin%2Ccnc&ctime=1561128253&mtime=1561128253&resv0=cdnback&resv1=0&vuk=1214427916&iv=0&htype=&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=en-d6f00f283a00586b71a6dbfc1bbce93cd79262ccc27487e6bc6dc34a4fdaa2b94f76819e8a7b662a&sl=76480590&expires=8h&rt=pr&r=777395024&vbdid=14227991&fin=HYZhuZiMuTouRenW.ttf&fn=HYZhuZiMuTouRenW.ttf&rtype=1&dp-logid=4118612108287690303&dp-callid=0.1&hps=1&tsl=80&csl=80&csign=hrVAtgciSbxdHcj4s42RKpnuVDI%3D&so=0&ut=6&uter=4&serv=0&uc=738096701&ti=cdac697817123980ff5b8eebeea401328059f3663123d41e305a5e1275657320&by=themis#webfont34M5alKg') format('truetype'),
+	         url('https://qdcu01.baidupcs.com/file/3bc1bd28b6f0b32d2833bb71bf755f9d?bkt=en-4d166c07188776155fe094226e971e88071b51796a166ce4b10883fe4e8c48f0a524160eb9f23ac8&fid=1214427916-250528-995972032020077&time=1561614795&sign=FDTAXGERLQBHSKfW-DCb740ccc5511e5e8fedcff06b081203-omZeBOWspPZhmbJKpR0ozvaHOdc%3D&to=65&size=4965397&sta_dx=4965397&sta_cs=1&sta_ft=svg&sta_ct=2&sta_mt=2&fm2=MH%2CQingdao%2CAnywhere%2C%2Ctianjin%2Ccnc&ctime=1561128259&mtime=1561128259&resv0=cdnback&resv1=0&vuk=1214427916&iv=0&htype=&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=en-c2f80831d3add17cf2a846278ede01206db6065f25cc2c05c8131ee665a8a8ad559496d8dffc09ab&sl=76480590&expires=8h&rt=pr&r=671558088&vbdid=14227991&fin=HYZhuZiMuTouRenW.svg&fn=HYZhuZiMuTouRenW.svg&rtype=1&dp-logid=4118550076117267735&dp-callid=0.1&hps=1&tsl=80&csl=80&csign=hrVAtgciSbxdHcj4s42RKpnuVDI%3D&so=0&ut=6&uter=4&serv=0&uc=738096701&ti=51702cd94a4865eecedd98ad38eb7dbfc02d12fe01297bcd&by=themis') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+}
+	#d1{
+		width:680px;
+		height:580px;
+		/* margin: auto; */
+		top:100px;
+		left:30%;
+		position: absolute;
+	}
+	.zhizhang{
+		position:absolute;
+		box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+		-webkit-transition: all ease .3s;
+		transition: all ease .5s;
+		z-index: 2;
+	}
+	/* img:hover{
+		-webkit-transform: scale(1.05);
+		transform: scale(2.05);
+		box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+		border-radius: 50%;
+		z-index: 999;
+	} */
+	input{
+		width:200px;
+		height:40px;
+		text-align: center;
+	}
+	#d2{
+		width:800px;
+		height:250px;
+		position:absolute;
+		top: 165px;
+		left: 238px;
+		text-align: center;
+	}
+	#en{
+		width:100px;
+		height:50px;
+		border-radius:10px ;
+		background-color: rgba(231,234,237,0.8);
+		border: none;
+	}
+	audio{
+		position:absolute;
+		top: 50px;
+		left: 20px;
+	}
+	h2{
+		font-family: "comic sans ms";
+		font-size: 60px;
+		position:absolute;
+		top: 200px;
+		left: 460px;
+		color: rgba(255,0,0,0.5);
+	}
+	h1{
+		font-family: Segoe-Print Arial, Helvetica, sans-serif;
+		font-size: 35px;
+	}
+	#ren{
+	   height:300px ;
+	   width:300px;
+	}
+	.body_left {
+    width: 300px;
+    height: 300px;
+    left: 0;
+    bottom: 110px;
+    position: absolute;
+    z-index: 98;
+
+}
+</style>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+
+</head>
+<body>
+	<canvas id="c" style="position: absolute;z-index: -1;text-align: center;"></canvas>
+	<div id="d1">
+	</div>
+	<!-- <div id="d2" ><h1 id="h1">倒计时</h1><br />
+		<input type="text" placeholder="小时" id="i1"/> 小时 <input type="text"  placeholder="分钟" id="i2"/> 分钟 <input type="text"  placeholder="秒" id="i3"/> 秒
+		<br><br><input id="en" type="button" value="开始倒计时" onclick="myfn()">
+		</div> -->
+		<!-- <audio controls="controls" autoplay="autoplay">
+		<source src="Blind.mp3" type="audio/mp3" />
+		<source src="Blind.mp3" type="audio/mpeg" /> 
+		</audio> -->
+		<div id="main"><h1 >你知道吗，等待是最长情的告白</h1></div>
+		<!-- <img src="图片路径" id="pic" style="display:none"/> -->
+		<h1 style="display:none" id="main2">还是最喜欢两个啾啾</h1>
+		<div class="body_left">
+        <img id="ren"  src="biubiubiu.gif" alt="" ondragstart='return false;'>
+        </div>
+        <div id="record">
+        	asdddd
+        </div>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {			
+            var canvas = document.getElementById("c");
+			var ctx = canvas.getContext("2d");
+			var c = $("#c");
+			var w,h;
+			var pi = Math.PI;
+			var all_attribute = {
+				num:50,            			 // 个数
+				start_probability:0.1,		     // 如果数量小于num，有这些几率添加一个新的     		     
+				size_min:1,   			     // 初始爱心大小的最小值
+				size_max:2,   			     // 初始爱心大小的最大值
+				size_add_min:0.1,               // 每次变大的最小值（就是速度）
+				size_add_max:0.3,               // 每次变大的最大值
+				opacity_min:0.3,                 // 初始透明度最小值
+				opacity_max:0.5, 				 // 初始透明度最大值
+				opacity_prev_min:.003,            // 透明度递减值最小值
+				opacity_prev_max:.005,            // 透明度递减值最大值
+				light_min:0,                 	  // 颜色亮度最小值
+				light_max:90,                 	  // 颜色亮度最大值
+			};
+			var style_color = find_random(0,360);  
+			var all_element =[];
+			window_resize();
+			function start(){
+				window.requestAnimationFrame(start);
+				style_color+=0.1;
+				//更改背景色hsl(颜色值，饱和度，明度)
+				ctx.fillStyle = 'hsl('+style_color+',100%,97%)';
+				ctx.fillRect(0, 0, w, h);
+				if (all_element.length < all_attribute.num && Math.random() < all_attribute.start_probability){
+					all_element.push(new ready_run);
+				}
+				all_element.map(function(line) {
+					line.to_step();
+				})
+			}
+			function ready_run(){
+				this.to_reset();
+			}
+				function arc_heart(x,y,z,m){
+							 //绘制爱心图案的方法，参数x,y是爱心的初始坐标，z是爱心的大小，m是爱心上升的速度
+					//爱心向左飘
+//							 x+=m;
+					//爱心向右飘
+//							x-=m;
+//							爱心向上飘，向下飘换成+
+							 y-=m*10;
+							 
+							 ctx.moveTo(x,y);
+							 z*=0.05;
+							 ctx.bezierCurveTo(x,y-3*z,x-5*z,y-15*z,x-25*z,y-15*z);
+							 ctx.bezierCurveTo(x-55*z,y-15*z,x-55*z,y+22.5*z,x-55*z,y+22.5*z);
+							 ctx.bezierCurveTo(x-55*z,y+40*z,x-35*z,y+62*z,x,y+80*z);
+							 ctx.bezierCurveTo(x+35*z,y+62*z,x+55*z,y+40*z,x+55*z,y+22.5*z);
+							 ctx.bezierCurveTo(x+55*z,y+22.5*z,x+55*z,y-15*z,x+25*z,y-15*z);
+							 ctx.bezierCurveTo(x+10*z,y-15*z,x,y-3*z,x,y);
+		      }
+			ready_run.prototype = {
+				to_reset:function(){
+					var t = this;
+					t.x = find_random(0,w);
+					t.y = find_random(0,h);
+					t.size = find_random(all_attribute.size_min,all_attribute.size_max);
+					t.size_change = find_random(all_attribute.size_add_min,all_attribute.size_add_max);
+					t.opacity = find_random(all_attribute.opacity_min,all_attribute.opacity_max);
+					t.opacity_change = find_random(all_attribute.opacity_prev_min,all_attribute.opacity_prev_max);
+					t.light = find_random(all_attribute.light_min,all_attribute.light_max);
+					t.color = 'hsl('+style_color+',100%,'+t.light+'%)';
+				},
+				to_step:function(){
+					var t = this;
+					t.opacity -= t.opacity_change;
+					t.size += t.size_change;
+					if(t.opacity <= 0){
+						t.to_reset();
+						return false;
+					}
+					ctx.fillStyle = t.color;
+					ctx.globalAlpha = t.opacity;
+					ctx.beginPath();
+					arc_heart(t.x,t.y,t.size,t.size);
+					ctx.closePath();
+					ctx.fill();
+					ctx.globalAlpha = 1;
+				}
+			}
+			
+			function window_resize(){
+//				canvas铺满窗口
+				w = window.innerWidth;
+				h = window.innerHeight;
+				//如果需要铺满内容可以换下面这个
+//				w=$("body").width();
+//				h=$("body").height();
+				canvas.width = w;
+				canvas.height = h;
+				
+			}
+			$(window).resize(function(){
+				window_resize();
+			});
+			
+			//返回一个介于参数1和参数2之间的随机数
+			function find_random(num_one,num_two){
+				return Math.random()*(num_two-num_one)+num_one;
+			}
+
+			start();
+        });
+</script>
+</html>

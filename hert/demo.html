@@ -1,0 +1,189 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>从开始到现在</title>
+<embed src="didada.mp3" hidden="true" autostart="true" loop="9"/>
+<audio src="dida.mp3" id="myAudio" hidden="true" autoplay="true" loop="true"></audio>
+<style>
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900");
+html {
+  display: grid;
+  min-height: 100%;
+}
+
+body {
+  display: grid;
+  background: #F0F0D8;
+}
+
+.container {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: 650px;
+  height: 450px;
+}
+
+h1 {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  margin-top: 2em;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #699FDB;
+}
+
+#timer {
+  color: #F6F4F3;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-size: .7em;
+  letter-spacing: 5px;
+}
+
+.days, .hours, .minutes, .seconds {
+  display: inline-block;
+  padding: 20px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.days {
+  background: #EF2F3C;
+}
+
+.hours {
+  background: #F6F4F3;
+  color: #183059;
+}
+
+.minutes {
+  background: #276FBF;
+}
+
+.seconds {
+  background: #F0A202;
+}
+
+.numbers {
+  font-family: "Montserrat", sans-serif;
+  color: #183059;
+  font-size: 5em;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-transform: uppercase;
+  padding: 10px;
+  font-family: "Lato", sans-serif;
+  font-size: 0.7em;
+}
+footer p {
+  letter-spacing: 3px;
+  color: #EF2F3C;
+}
+footer a {
+  color: #F6F4F3;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #276FBF;
+}
+#butdiv {
+	width:100%;
+	height:100px;
+}
+#but{
+	display:none;
+	text-align: center;
+  	-webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  background: transparent;
+  padding: 1rem 1rem;
+  margin: 0 52rem;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  color: #41403E;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  outline: none;
+  box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border: solid 7px #41403E;
+}
+#but:hover {
+  box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3);
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+	<h1>
+		从认识你到现在,From 维C to much water fish,从我们开始的第十九句话开始就是关于他,直到现在,或许以后,
+		
+		
+	</h1>
+	<h1>故事大发展有很多意外，有你在的结局总不太坏</h1>
+  <div id="timer"></div>
+  <h1>Do you remember the day we met</h1>
+  <h1>Maybe something strange will happen between 14 and 31</h1>
+</div>
+  <div id="butdiv">
+  <button id='but' onclick="javascrtpt:window.location.href='./heart.html'">Lined Thick</button>
+  </div>
+
+
+<script>
+const fourthOfJuly = new Date("July 4, 2028 12:00:00").getTime();
+var before = new Date("2019-01-03").getTime();
+
+
+// countdown
+let timer = setInterval(function() {
+
+  // get today's date
+  const today = new Date().getTime();
+
+  // get the difference
+  const diff = today - before;
+
+  // math
+  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  // display
+  document.getElementById("timer").innerHTML =
+    "<div class=\"days\"> \
+  <div class=\"numbers\">" + days + "</div>days</div> \
+<div class=\"hours\"> \
+  <div class=\"numbers\">" + hours + "</div>hours</div> \
+<div class=\"minutes\"> \
+  <div class=\"numbers\">" + minutes + "</div>minutes</div> \
+<div class=\"seconds\"> \
+  <div class=\"numbers\">" + seconds + "</div>seconds</div> \
+</div>";
+	if(seconds>14 && seconds<31){
+		$("#but").attr("style","display:block;");
+	}
+}, 1000);
+	
+</script>
+<script type="text/javascript">
+myAudio.oncanplaythrough = function () {
+    myAudio.play();
+};
+</script>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</body>
+</html>
